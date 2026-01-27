@@ -65,10 +65,10 @@ The core philosophy is simple: **Increase leverage when the macro environment is
 
 This project utilizes a modern Python data science stack:
 
-* [![Python][Python.org]][Python-url]
-* [![Pandas][Pandas-url]][Pandas-site]
-* [![NumPy][NumPy-url]][NumPy-site]
-* [![Matplotlib][Matplotlib-url]][Matplotlib-site]
+* [![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+* [![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)](https://pandas.pydata.org/)
+* [![NumPy](https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white)](https://numpy.org/)
+* [![Matplotlib](https://img.shields.io/badge/Matplotlib-ffffff?style=for-the-badge&logo=matplotlib&logoColor=black)](https://matplotlib.org/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
