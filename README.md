@@ -47,7 +47,8 @@
 **ExpectedMarketReturn** is a Python-based quantitative finance pipeline designed to solve the problem of emotional investing. It combines macroeconomic liquidity indicators (M2, GDP) with technical trend analysis to generate actionable trading signals.
 
 The core philosophy is simple: **Increase leverage when the macro environment is safe and the trend is up; protect capital when risks are high.**
-
+<img width="2097" height="1135" alt="螢幕擷取畫面 2026-01-27 133104" src="https://github.com/user-attachments/assets/8ba42048-c996-41e7-ae0a-04f2a97164f8" />
+<img width="1795" height="989" alt="螢幕擷取畫面 2026-01-27 133026" src="https://github.com/user-attachments/assets/c49a5680-bd34-459a-b2af-2fd67e56fa5a" />
 ### Key Features
 
 * **Real-World Data Integration**: Fetches live macroeconomic data from **FRED** (Federal Reserve Economic Data) and market data from **Yahoo Finance**.
@@ -111,16 +112,34 @@ python main.py
 [Step 7] Analyzing Market Status...
 
 ============================================================
-  【量化模型：市場診斷報告】
+ 【量化模型：市場診斷報告 】
 ============================================================
-數據基準日: 2026-01-27
+數據基準日: 2026-01-01
 1️ 宏觀風險指數 : 1.00 ✅ 安全
-2️ 預期年化報酬 : 4.64%
-3️ 系統決策訊號 : 【BULL】
+2 預期年化報酬 : 4.66%
+3️ 系統決策訊號 : 【NEUTRAL】
 ------------------------------------------------------------
-  【最終執行指令】:
-     建議: 2.0x 槓桿 (SSO/期貨)
+ 【最終執行指令】:
+    建議: 1.0x 現貨 (SPY/VOO)
 ============================================================
+
+
+[Step 8] Running Backtest...
+ 正在進行 Phase 4 回測：動態槓桿 (Dynamic Leverage)...
+
+==================================================
+ 【Phase 4 回測：動態槓桿版】
+==================================================
+指標 (Metric)          | 大盤 (S&P 500)    | MVP 2x (Strategy)
+------------------------------------------------------------
+總報酬率 (Total Ret)     | 3769.19%          | 12208.90%
+最大回撤 (Max DD)        | -46.70% (痛!)     | -20.98% (穩)
+夏普比率 (Sharpe)        |   1.35            |   1.44
+------------------------------------------------------------
+ 恭喜！動態槓桿策略成功【碾壓大盤】！
+ 關鍵：在牛市開 2 倍加速，在熊市 0 倍保命。
+==================================================
+
 ```
 Roadmap
 [x] MVP Release: Core pipeline with FRED/Yahoo data integration.
