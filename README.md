@@ -1,4 +1,12 @@
 <a id="readme-top"></a>
+---
+
+[![Contributors](https://img.shields.io/github/contributors/aionyx02/ExpectedMarketReturn.svg?style=for-the-badge)](https://github.com/aionyx02/ExpectedMarketReturn/graphs/contributors)
+[![Forks](https://img.shields.io/github/forks/aionyx02/ExpectedMarketReturn.svg?style=for-the-badge)](https://github.com/aionyx02/ExpectedMarketReturn/network/members)
+[![Stars](https://img.shields.io/github/stars/aionyx02/ExpectedMarketReturn.svg?style=for-the-badge)](https://github.com/aionyx02/ExpectedMarketReturn/stargazers)
+[![License](https://img.shields.io/github/license/aionyx02/ExpectedMarketReturn.svg?style=for-the-badge)](https://github.com/aionyx02/ExpectedMarketReturn/blob/master/LICENSE)
+[![LinkedIn](https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555)](https://linkedin.com/)
+
 <br />
 <div align="center">
   <h3 align="center">Expected Market Return</h3>
