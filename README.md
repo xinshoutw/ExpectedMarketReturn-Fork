@@ -130,17 +130,12 @@ This ensures missing macro values converge smoothly to long-term equilibrium $\t
 
 Built With
 
-Python
-
-Pandas
-
-NumPy
-
-Matplotlib
-
-yfinance
-
-scipy
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white)
+![NumPy](https://img.shields.io/badge/numpy-%23013243.svg?style=for-the-badge&logo=numpy&logoColor=white)
+![Matplotlib](https://img.shields.io/badge/Matplotlib-%23ffffff.svg?style=for-the-badge&logo=Matplotlib&logoColor=black)
+![SciPy](https://img.shields.io/badge/SciPy-%230C55A5.svg?style=for-the-badge&logo=scipy&logoColor=white)
+![yfinance](https://img.shields.io/badge/yfinance-Yahoo!-410099?style=for-the-badge&logo=yahoo&logoColor=white)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -204,30 +199,36 @@ Backtest compares strategy vs S&P 500 with dynamic leverage control.
 
 Roadmap
 
-MVP pipeline (FRED + Yahoo Finance integration)
-
-Mean Reversion data filling
-
-Market breadth diagnostics
-
-Notification system (Line Bot / Telegram)
-
-Kelly Criterion position sizing
-
-Stress testing (2008, 2020 crash scenarios)
+![MVP](https://img.shields.io/badge/MVP_Pipeline-Integration-005963?style=for-the-badge&logo=gitlabbici&logoColor=white)
+![FRED](https://img.shields.io/badge/FRED-Macro_Data-990000?style=for-the-badge&logo=databricks&logoColor=white)
+![Breadth](https://img.shields.io/badge/Market_Breadth-Diagnostics-2E8B57?style=for-the-badge&logo=analogue&logoColor=white)
+![Line](https://img.shields.io/badge/LINE_Bot-Notification-00C300?style=for-the-badge&logo=line&logoColor=white)
+![Telegram](https://img.shields.io/badge/Telegram_Bot-Notification-26A5E4?style=for-the-badge&logo=telegram&logoColor=white)
+![Kelly](https://img.shields.io/badge/Kelly_Criterion-Position_Sizing-DAA520?style=for-the-badge&logo=scales&logoColor=white)
+![Stress Test](https://img.shields.io/badge/Stress_Testing-2008_%2F_2020-8B0000?style=for-the-badge&logo=speedtest&logoColor=white)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-Contributing
 
-Contributions are welcome.
+We welcome contributions from the community! To keep the codebase clean and functional, please follow these steps:
 
-Fork the project
+1. Development Process
+Issue First: Before making major changes, please open an issue to discuss what you would like to change.
 
-Create a branch
+Branch Naming: Use descriptive names like fix/data-filling or feat/market-breadth.
 
-Commit changes
+2. Pull Request Guidelines
+Style: Ensure your code follows PEP 8 standards.
 
-Open a Pull Request
+Testing: If you add new financial indicators or stress test scenarios, please include corresponding unit tests.
+
+Documentation: Update the README.md or docstrings if you introduce new API integrations (e.g., new FRED endpoints).
+
+3. Getting Started
+   .Fork the Project.  
+   .Create your Feature Branch.  
+   .Commit your Changes.  
+   .Push to the Branch.  
+   .Open a Pull Request.  
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 License
