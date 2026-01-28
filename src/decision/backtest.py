@@ -3,11 +3,15 @@ import matplotlib.pyplot as plt
 import os
 import logging
 from config.path import PathConfig
+
 logging.basicConfig(
-    level=logging.DEBUG,
-    format='%(asctime)s.%(msecs)03d | %(levelname)s | %(name)s | %(message)s',
-    datefmt='%Y-%m-%d %H:%M:%S',
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    filename='app.log',
+    filemode='a'
 )
+logging.getLogger('matplotlib').setLevel(logging.WARNING)
+logging.getLogger('PIL').setLevel(logging.WARNING)
 def run_backtest(path : str | None= None):
 
     if not os.path.exists(path):
@@ -97,9 +101,18 @@ def run_backtest(path : str | None= None):
     print("="*50)
     print(f"{'指標 (Metric)':<20} | {'大盤 (S&P 500)':<15} | {'MVP 2x (Strategy)':<15}")
     print("-" * 60)
-    print(f"{'總報酬率 (Total Ret)':<20} | {total_ret_bench*100:6.2f}%          | {total_ret_strat*100:6.2f}%")
-    print(f"{'最大回撤 (Max DD)':<20} | {mdd_bench*100:6.2f}%     | {mdd_strat*100:6.2f}%")
-    print(f"{'夏普比率 (Sharpe)':<20} | {sharpe_bench:6.2f}            | {sharpe_strat:6.2f}")
+    # 定義寬度變數，方便之後統一調整
+    label_w = 22  # 標籤寬度
+    data_w = 12   # 數據欄位寬度
+
+    # 表頭
+    print(f"{'指標名稱':<{label_w}} | {'Benchmark':^{data_w}} | {'Strategy':^{data_w}}")
+    print("-" * (label_w + data_w * 2 + 6))
+
+    # 數據行
+    print(f"{'總報酬率 (Total Ret)':<{label_w}} | {total_ret_bench*100:>{data_w}.2f}% | {total_ret_strat*100:>{data_w}.2f}%")
+    print(f"{'最大回撤 (Max DD)':<{label_w}} | {mdd_bench*100:>{data_w}.2f}% | {mdd_strat*100:>{data_w}.2f}%")
+    print(f"{'夏普比率 (Sharpe)':<{label_w}} | {sharpe_bench:>{data_w}.2f}  | {sharpe_strat:>{data_w}.2f} ")
     print("-" * 60)
 
     print("="*50 + "\n")

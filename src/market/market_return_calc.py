@@ -1,12 +1,16 @@
 import pandas as pd
 import yfinance as yf
-import logging
 from config.path import PathConfig
+import logging
+
 logging.basicConfig(
-    level=logging.DEBUG,
-    format='%(asctime)s.%(msecs)03d | %(levelname)s | %(name)s | %(message)s',
-    datefmt='%Y-%m-%d %H:%M:%S',
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    filename='app.log',
+    filemode='a'
 )
+logging.getLogger('matplotlib').setLevel(logging.WARNING)
+logging.getLogger('PIL').setLevel(logging.WARNING)
 def calc_market_return_pipeline(output_path = None):
     logging.info("   [Market] Fetching S&P 500 data from yfinance...")
 

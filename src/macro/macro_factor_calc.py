@@ -1,12 +1,16 @@
 import pandas as pd
 import os
-import logging
 from config.path import PathConfig
+import logging
+
 logging.basicConfig(
-    level=logging.DEBUG,
-    format='%(asctime)s.%(msecs)03d | %(levelname)s | %(name)s | %(message)s',
-    datefmt='%Y-%m-%d %H:%M:%S',
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    filename='app.log',
+    filemode='a'
 )
+logging.getLogger('matplotlib').setLevel(logging.WARNING)
+logging.getLogger('PIL').setLevel(logging.WARNING)
 def calc_macro_factor_logic(excess_liquidity, yield_spread, pmi=50):
     """
     平衡型宏觀邏輯：

@@ -4,10 +4,15 @@ import os
 import logging
 
 logging.basicConfig(
-    level=logging.DEBUG,
-    format='%(asctime)s.%(msecs)03d | %(levelname)s | %(name)s | %(message)s',
-    datefmt='%Y-%m-%d %H:%M:%S',
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    filename='app.log',
+    filemode='a'
 )
+logging.getLogger('matplotlib').setLevel(logging.WARNING)
+logging.getLogger('PIL').setLevel(logging.WARNING)
+logging.getLogger('matplotlib').setLevel(logging.WARNING)
+logging.getLogger('PIL').setLevel(logging.WARNING)
 def breadth_signal_logic(cap_ret, equal_ret):
 
     threshold = -0.01 # 容忍度，跌超過 1% 才算跌

@@ -7,13 +7,17 @@ from macro import macro_factor_calc
 from market import market_return_calc
 from breadth import cap_vs_equal
 from decision import signal_calc, report, backtest
-import logging
 from config.path import PathConfig
+import logging
+
 logging.basicConfig(
-    level=logging.DEBUG,
-    format='%(asctime)s.%(msecs)03d | %(levelname)s | %(name)s | %(message)s',
-    datefmt='%Y-%m-%d %H:%M:%S',
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    filename='app.log',
+    filemode='a'
 )
+logging.getLogger('matplotlib').setLevel(logging.WARNING)
+logging.getLogger('PIL').setLevel(logging.WARNING)
 def run_pipeline():
     # 設定目標日期
     target_date_str = datetime.now().strftime("%Y-%m-%d")

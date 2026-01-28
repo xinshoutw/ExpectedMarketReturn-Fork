@@ -1,19 +1,22 @@
 import pandas as pd
 import os
-import logging
 
 from config.path import PathConfig
 
-PathConfig.ensure_dir()
+import logging
+
 logging.basicConfig(
-    level=logging.DEBUG,
-    format='%(asctime)s.%(msecs)03d | %(levelname)s | %(name)s | %(message)s',
-    datefmt='%Y-%m-%d %H:%M:%S',
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    filename='app.log',
+    filemode='a'
 )
-def calc_final_signal_pipeline(macro_path : str = None ,
-                               market_path : str = None ,
-                               breadth_path : str = None ,
-                               output_path : str = None):
+logging.getLogger('matplotlib').setLevel(logging.WARNING)
+logging.getLogger('PIL').setLevel(logging.WARNING)
+def calc_final_signal_pipeline(macro_path : str = PathConfig.MACRO_FACTOR_CSV ,
+                               market_path : str = PathConfig.MARKET_RETURN_CSV ,
+                               breadth_path : str = PathConfig.BREADTH_CSV ,
+                               output_path : str = PathConfig.FINAL_SIGNAL_CSV):
     global breadth
     logging.info("   [Decision] Merging Macro, Market, and Breadth data...")
 
