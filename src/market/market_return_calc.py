@@ -1,17 +1,12 @@
-import pandas as pd
-import yfinance as yf
-from config.path import PathConfig
 import logging
 
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s',
-    filename='app.log',
-    filemode='a'
-)
-logging.getLogger('matplotlib').setLevel(logging.WARNING)
-logging.getLogger('PIL').setLevel(logging.WARNING)
-def calc_market_return_pipeline(output_path = None):
+import pandas as pd
+import yfinance as yf
+
+from config.path import PathConfig
+
+
+def calc_market_return_pipeline(output_path=None):
     logging.info("   [Market] Fetching S&P 500 data from yfinance...")
 
     #  抓取資料
@@ -24,7 +19,6 @@ def calc_market_return_pipeline(output_path = None):
     if sp500.empty:
         logging.error(" 錯誤: 下載到的資料為空 (Empty DataFrame)")
         return
-
 
     # 檢查是否為 MultiIndex
     if isinstance(sp500.columns, pd.MultiIndex):
@@ -47,7 +41,6 @@ def calc_market_return_pipeline(output_path = None):
             return
 
     sp500 = sp500[["Close"]].copy()
-
 
     # 處理日期索引
     if not isinstance(sp500.index, pd.DatetimeIndex):
@@ -77,9 +70,9 @@ def calc_market_return_pipeline(output_path = None):
 
     output_df = sp500[["date", "Close", "expected_return", "trend_signal"]].copy()
 
-
     output_df.to_csv(output_path, index=False)
     logging.info(f"  [Market] 資料處理成功！已儲存至 {output_path}")
 
+
 if __name__ == "__main__":
-    calc_market_return_pipeline(output_path= PathConfig.MARKET_RETURN_CSV)
+    calc_market_return_pipeline(output_path=PathConfig.MARKET_RETURN_CSV)

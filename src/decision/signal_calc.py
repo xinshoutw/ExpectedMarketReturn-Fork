@@ -1,22 +1,18 @@
-import pandas as pd
+import logging
 import os
+
+import pandas as pd
 
 from config.path import PathConfig
 
-import logging
 
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s',
-    filename='app.log',
-    filemode='a'
-)
-logging.getLogger('matplotlib').setLevel(logging.WARNING)
-logging.getLogger('PIL').setLevel(logging.WARNING)
-def calc_final_signal_pipeline(macro_path : str = PathConfig.MACRO_FACTOR_CSV ,
-                               market_path : str = PathConfig.MARKET_RETURN_CSV ,
-                               breadth_path : str = PathConfig.BREADTH_CSV ,
-                               output_path : str = PathConfig.FINAL_SIGNAL_CSV):
+
+def calc_final_signal_pipeline(
+    macro_path: str = PathConfig.MACRO_FACTOR_CSV,
+    market_path: str = PathConfig.MARKET_RETURN_CSV,
+    breadth_path: str = PathConfig.BREADTH_CSV,
+    output_path: str = PathConfig.FINAL_SIGNAL_CSV,
+):
     global breadth
     logging.info("   [Decision] Merging Macro, Market, and Breadth data...")
 
@@ -48,8 +44,10 @@ def calc_final_signal_pipeline(macro_path : str = PathConfig.MACRO_FACTOR_CSV ,
     # 合併 Breadth
     if has_breadth:
         breadth = breadth.sort_values("date")
-        df = pd.merge_asof(df, breadth[["date", "breadth_signal"]], on="date", direction="backward")
-        df["breadth_signal"] = df["breadth_signal"].fillna("HEALTHY") # 預設健康
+        df = pd.merge_asof(
+            df, breadth[["date", "breadth_signal"]], on="date", direction="backward"
+        )
+        df["breadth_signal"] = df["breadth_signal"].fillna("HEALTHY")  # 預設健康
     else:
         df["breadth_signal"] = "HEALTHY"
 
@@ -62,7 +60,7 @@ def calc_final_signal_pipeline(macro_path : str = PathConfig.MACRO_FACTOR_CSV ,
 
     def get_signal(row):
         #  宏觀風控
-        if row["macro_factor"] < 0.8: # 嚴格一點
+        if row["macro_factor"] < 0.8:  # 嚴格一點
             return "BEAR"
 
         #  技術面趨勢風控
@@ -90,6 +88,7 @@ def calc_final_signal_pipeline(macro_path : str = PathConfig.MACRO_FACTOR_CSV ,
 
     df.to_csv(output_path, index=False)
     logging.info(f"   [Decision] Final signal saved to {output_path}")
+
 
 if __name__ == "__main__":
     calc_final_signal_pipeline()
